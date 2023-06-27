@@ -1,0 +1,439 @@
+{
+  "baseIRI": "http://buchmann.ro#",
+  "namespaces": {
+    "schema": "http://schema.org#",
+    "": "http://buchmann.ro#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "reviewer": "http://buchmann.ro#/reviewer/",
+    "review": "http://buchmann.ro#/review/",
+    "store": "http://buchmann.ro#/store/"
+  },
+  "subjectMappings": [
+    {
+      "propertyMappings": [
+        {
+          "property": {
+            "transformation": {
+              "expression": "",
+              "language": "prefix"
+            },
+            "valueSource": {
+              "source": "constant",
+              "constant": "hasName"
+            }
+          },
+          "values": [
+            {
+              "valueSource": {
+                "columnName": "reviewer_name",
+                "source": "column"
+              },
+              "valueType": {
+                "type": "datatype_literal",
+                "datatype": {
+                  "transformation": {
+                    "expression": "xsd",
+                    "language": "prefix"
+                  },
+                  "valueSource": {
+                    "source": "constant",
+                    "constant": "string"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "subject": {
+        "transformation": {
+          "expression": "reviewer",
+          "language": "prefix"
+        },
+        "valueSource": {
+          "columnName": "reviewer_id",
+          "source": "column"
+        }
+      },
+      "typeMappings": [
+        {
+          "transformation": {
+            "expression": "schema",
+            "language": "prefix"
+          },
+          "valueSource": {
+            "source": "constant",
+            "constant": "Reviewer"
+          }
+        }
+      ]
+    },
+    {
+      "propertyMappings": [
+        {
+          "property": {
+            "transformation": {
+              "expression": "",
+              "language": "prefix"
+            },
+            "valueSource": {
+              "source": "constant",
+              "constant": "hasName"
+            }
+          },
+          "values": [
+            {
+              "valueSource": {
+                "columnName": "store_name",
+                "source": "column"
+              },
+              "valueType": {
+                "type": "datatype_literal",
+                "datatype": {
+                  "transformation": {
+                    "expression": "xsd",
+                    "language": "prefix"
+                  },
+                  "valueSource": {
+                    "source": "constant",
+                    "constant": "string"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "property": {
+            "transformation": {
+              "expression": "",
+              "language": "prefix"
+            },
+            "valueSource": {
+              "source": "constant",
+              "constant": "hasAddress"
+            }
+          },
+          "values": [
+            {
+              "valueSource": {
+                "columnName": "store_address",
+                "source": "column"
+              },
+              "valueType": {
+                "type": "datatype_literal",
+                "datatype": {
+                  "transformation": {
+                    "expression": "xsd",
+                    "language": "prefix"
+                  },
+                  "valueSource": {
+                    "source": "constant",
+                    "constant": "string"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "property": {
+            "transformation": {
+              "expression": "",
+              "language": "prefix"
+            },
+            "valueSource": {
+              "source": "constant",
+              "constant": "hasReviewCount"
+            }
+          },
+          "values": [
+            {
+              "valueSource": {
+                "columnName": "store_review_count",
+                "source": "column"
+              },
+              "valueType": {
+                "type": "datatype_literal",
+                "datatype": {
+                  "transformation": {
+                    "expression": "xsd",
+                    "language": "prefix"
+                  },
+                  "valueSource": {
+                    "source": "constant",
+                    "constant": "integer"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "subject": {
+        "transformation": {
+          "expression": "store",
+          "language": "prefix"
+        },
+        "valueSource": {
+          "columnName": "store_id",
+          "source": "column"
+        }
+      },
+      "typeMappings": [
+        {
+          "transformation": {
+            "expression": "schema",
+            "language": "prefix"
+          },
+          "valueSource": {
+            "source": "constant",
+            "constant": "Store"
+          }
+        }
+      ]
+    },
+    {
+      "propertyMappings": [
+        {
+          "property": {
+            "transformation": {
+              "expression": "",
+              "language": "prefix"
+            },
+            "valueSource": {
+              "source": "constant",
+              "constant": "writtenOn"
+            }
+          },
+          "values": [
+            {
+              "valueSource": {
+                "columnName": "review_time",
+                "source": "column"
+              },
+              "valueType": {
+                "type": "datatype_literal",
+                "datatype": {
+                  "transformation": {
+                    "expression": "xsd",
+                    "language": "prefix"
+                  },
+                  "valueSource": {
+                    "source": "constant",
+                    "constant": "date"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "property": {
+            "transformation": {
+              "expression": "",
+              "language": "prefix"
+            },
+            "valueSource": {
+              "source": "constant",
+              "constant": "hasDescription"
+            }
+          },
+          "values": [
+            {
+              "valueSource": {
+                "columnName": "review",
+                "source": "column"
+              },
+              "valueType": {
+                "type": "datatype_literal",
+                "datatype": {
+                  "transformation": {
+                    "expression": "xsd",
+                    "language": "prefix"
+                  },
+                  "valueSource": {
+                    "source": "constant",
+                    "constant": "string"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "property": {
+            "transformation": {
+              "expression": "",
+              "language": "prefix"
+            },
+            "valueSource": {
+              "source": "constant",
+              "constant": "hasRating"
+            }
+          },
+          "values": [
+            {
+              "valueSource": {
+                "columnName": "rating",
+                "source": "column"
+              },
+              "valueType": {
+                "type": "datatype_literal",
+                "datatype": {
+                  "transformation": {
+                    "expression": "xsd",
+                    "language": "prefix"
+                  },
+                  "valueSource": {
+                    "source": "constant",
+                    "constant": "integer"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "property": {
+            "transformation": {
+              "expression": "",
+              "language": "prefix"
+            },
+            "valueSource": {
+              "source": "constant",
+              "constant": "writtenBy"
+            }
+          },
+          "values": [
+            {
+              "transformation": {
+                "expression": "reviewer",
+                "language": "prefix"
+              },
+              "valueSource": {
+                "columnName": "reviewer_id",
+                "source": "column"
+              },
+              "valueType": {
+                "propertyMappings": [],
+                "type": "iri",
+                "typeMappings": []
+              }
+            }
+          ]
+        }
+      ],
+      "subject": {
+        "transformation": {
+          "expression": "review",
+          "language": "prefix"
+        },
+        "valueSource": {
+          "columnName": "review_id",
+          "source": "column"
+        }
+      },
+      "typeMappings": [
+        {
+          "transformation": {
+            "expression": "schema",
+            "language": "prefix"
+          },
+          "valueSource": {
+            "source": "constant",
+            "constant": "Review"
+          }
+        }
+      ]
+    },
+    {
+      "propertyMappings": [
+        {
+          "property": {
+            "transformation": {
+              "expression": "",
+              "language": "prefix"
+            },
+            "valueSource": {
+              "source": "constant",
+              "constant": "hasReview"
+            }
+          },
+          "values": [
+            {
+              "transformation": {
+                "expression": "review",
+                "language": "prefix"
+              },
+              "valueSource": {
+                "columnName": "review_id",
+                "source": "column"
+              },
+              "valueType": {
+                "propertyMappings": [],
+                "type": "iri",
+                "typeMappings": []
+              }
+            }
+          ]
+        }
+      ],
+      "subject": {
+        "transformation": {
+          "expression": "store",
+          "language": "prefix"
+        },
+        "valueSource": {
+          "columnName": "store_id",
+          "source": "column"
+        }
+      },
+      "typeMappings": []
+    },
+    {
+      "propertyMappings": [
+        {
+          "property": {
+            "transformation": {
+              "expression": "",
+              "language": "prefix"
+            },
+            "valueSource": {
+              "source": "constant",
+              "constant": "wroteReview"
+            }
+          },
+          "values": [
+            {
+              "transformation": {
+                "expression": "review",
+                "language": "prefix"
+              },
+              "valueSource": {
+                "columnName": "review_id",
+                "source": "column"
+              },
+              "valueType": {
+                "propertyMappings": [],
+                "type": "iri",
+                "typeMappings": []
+              }
+            }
+          ]
+        }
+      ],
+      "subject": {
+        "transformation": {
+          "expression": "reviewer",
+          "language": "prefix"
+        },
+        "valueSource": {
+          "columnName": "reviewer_id",
+          "source": "column"
+        }
+      },
+      "typeMappings": []
+    }
+  ]
+}
