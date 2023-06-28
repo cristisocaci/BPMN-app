@@ -70,11 +70,11 @@ ${commonHeaders}
 construct {
     <http://buchmann.ro#/review/${review.id}> a schema:Review; 
                                               :writtenOn "${review.date}"^^xsd:date;
-									                            :hasDescription "${review.description}";
-            						                      :hasRating ${review.rating};
-                     				                  :writtenBy ?x;
-                            		              ^:wroteReview ?x; 
-                            		              ^:hasReview <${review.storeId}>.
+                                              :hasDescription "${review.description}";
+                                              :hasRating ${review.rating};
+                                              :writtenBy ?x;
+                                              ^:wroteReview ?x; 
+                                              ^:hasReview <${review.storeId}>.
 }
 where{
     ?x a schema:Reviewer; :hasName "Socaci Cristian"
