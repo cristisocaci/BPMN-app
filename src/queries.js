@@ -58,7 +58,7 @@ SELECT ?id ?date ?description ?rating ?reviewerName where {
 }
   `,
 
-  getReviewCount: (storeId) => `
+  getReviewCount: () => `
 ${commonHeaders}
 
 select (count(?x) as ?count) where {?x a schema:Review.}
