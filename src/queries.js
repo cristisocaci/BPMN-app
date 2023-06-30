@@ -58,7 +58,7 @@ SELECT ?id ?date ?description ?rating ?reviewerName where {
 }
   `,
 
-  getReviewCount: () => `
+  getReviewCount: (storeId) => `
 ${commonHeaders}
 
 select (count(?x) as ?count) where {?x a schema:Review.}
@@ -67,14 +67,14 @@ select (count(?x) as ?count) where {?x a schema:Review.}
   addReview: (review) => `
 ${commonHeaders}
 
-construct {
+insert{
     <http://buchmann.ro#/review/${review.id}> a schema:Review; 
                                               :writtenOn "${review.date}"^^xsd:date;
                                               :hasDescription "${review.description}";
                                               :hasRating ${review.rating};
-                                              :writtenBy ?x;
-                                              ^:wroteReview ?x; 
-                                              ^:hasReview <${review.storeId}>.
+                                              :writtenBy ?x.
+    ?x :wroteReview <http://buchmann.ro#/review/${review.id}>.
+    <${review.storeId}> :hasReview <http://buchmann.ro#/review/${review.id}>.
 }
 where{
     ?x a schema:Reviewer; :hasName "Socaci Cristian"

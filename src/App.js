@@ -5,12 +5,18 @@ import Typography from "@mui/material/Typography";
 import Toolbar from "@mui/material/Toolbar";
 import { useState } from "react";
 import Reviews from "./components/Reviews";
+import AddReview from "./components/AddReview";
 
 export const ENDPOINT = "http://localhost:7200/repositories/project";
 
 function App() {
-  const [store, setStore] = useState();
+  const [store, setStore] = useState(null);
+  const [addReview, setAddReview] = useState(false);
 
+  const navigateToLanding = () => {
+    setStore(null);
+    setAddReview(false);
+  };
   return (
     <>
       <AppBar position="static">
@@ -18,14 +24,12 @@ function App() {
           <Typography
             variant="h6"
             noWrap
-            onClick={() => setStore(null)}
+            onClick={navigateToLanding}
             sx={{
               ml: 3,
               mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
+              display: "flex",
               fontWeight: 700,
-              letterSpacing: ".2rem",
               color: "inherit",
               cursor: "pointer",
             }}
@@ -34,8 +38,11 @@ function App() {
           </Typography>
         </Toolbar>
       </AppBar>
-      {!store && <Stores setStore={setStore} />}
-      {store && <Reviews store={store} />}
+      {!store && <Stores setStore={setStore} setAddReview={setAddReview} />}
+      {store && !addReview && <Reviews store={store} />}
+      {store && addReview && (
+        <AddReview store={store} navigateToLanding={navigateToLanding} />
+      )}
     </>
   );
 }

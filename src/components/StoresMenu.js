@@ -4,7 +4,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 
-export default function StoresMenu({ onClick }) {
+export default function StoresMenu({ onShowReviewsClick, onWriteReviewClick }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -14,9 +14,14 @@ export default function StoresMenu({ onClick }) {
     setAnchorEl(null);
   };
 
-  const click = () => {
+  const showReviewsClick = () => {
     handleClose();
-    onClick();
+    onShowReviewsClick();
+  };
+
+  const writeReviewClick = () => {
+    handleClose();
+    onWriteReviewClick();
   };
 
   return (
@@ -39,7 +44,8 @@ export default function StoresMenu({ onClick }) {
           "aria-labelledby": "basic-button",
         }}
       >
-        <MenuItem onClick={click}>Show Reviews</MenuItem>
+        <MenuItem onClick={showReviewsClick}>Show Reviews</MenuItem>
+        <MenuItem onClick={writeReviewClick}>Write Review</MenuItem>
       </Menu>
     </div>
   );

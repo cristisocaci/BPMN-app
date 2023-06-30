@@ -8,7 +8,7 @@ import StoresMenu from "./StoresMenu";
 import LinearProgress from "@mui/material/LinearProgress";
 import queries from "../queries";
 
-function Stores({ setStore }) {
+function Stores({ setStore, setAddReview }) {
   const [stores, setStores] = useState(null);
   const [pageSize, setPageSize] = useState(20);
 
@@ -41,7 +41,13 @@ function Stores({ setStore }) {
       headerName: "Options",
       renderCell: (params) => (
         <StoresMenu
-          onClick={() => setStore(stores.find((x) => x.id === params.value))}
+          onShowReviewsClick={() =>
+            setStore(stores.find((x) => x.id === params.value))
+          }
+          onWriteReviewClick={() => {
+            setStore(stores.find((x) => x.id === params.value));
+            setAddReview(true);
+          }}
         />
       ),
       sortable: false,
