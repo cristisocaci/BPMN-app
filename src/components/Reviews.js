@@ -28,6 +28,7 @@ function Reviews({ store }) {
     {
       field: "reviewerName",
       headerName: "Reviewer Name",
+      width: 150,
     },
     {
       field: "description",

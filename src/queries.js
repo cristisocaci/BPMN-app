@@ -1,6 +1,5 @@
 const commonHeaders = `
 BASE <http://buchmann.ro#>
-PREFIX mapper: <http://www.ontotext.com/mapper/>
 PREFIX schema: <http://schema.org#>
 PREFIX : <http://buchmann.ro#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
