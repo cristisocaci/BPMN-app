@@ -1,0 +1,19 @@
+BASE <http://buchmann.ro#>
+PREFIX schema: <http://schema.org#>
+PREFIX : <http://buchmann.ro#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX reviewer: <http://buchmann.ro#/reviewer/>
+PREFIX review: <http://buchmann.ro#/review/>
+PREFIX store: <http://buchmann.ro#/store/>
+
+SELECT ?id ?date ?description ?rating ?reviewerName where {
+	?store_id a schema:Store;
+     :hasReview ?id.
+    ?id :writtenOn ?date;
+       	:hasDescription ?description;
+       	:hasRating ?rating;
+       	:writtenBy ?user_id.
+    ?user_id :hasName ?reviewerName.
+    FILTER NOT EXISTS {?user_id :hasName "Socaci Cristian"}.
+    FILTER(?store_id = <${storeId}>).
+}

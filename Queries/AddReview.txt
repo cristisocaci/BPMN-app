@@ -1,0 +1,20 @@
+BASE <http://buchmann.ro#>
+PREFIX schema: <http://schema.org#>
+PREFIX : <http://buchmann.ro#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX reviewer: <http://buchmann.ro#/reviewer/>
+PREFIX review: <http://buchmann.ro#/review/>
+PREFIX store: <http://buchmann.ro#/store/>
+
+insert{
+    <http://buchmann.ro#/review/${review.id}> a schema:Review; 
+                                              :writtenOn "${review.date}"^^xsd:date;
+                                              :hasDescription "${review.description}";
+                                              :hasRating ${review.rating};
+                                              :writtenBy ?x.
+    ?x :wroteReview <http://buchmann.ro#/review/${review.id}>.
+    <${review.storeId}> :hasReview <http://buchmann.ro#/review/${review.id}>.
+}
+where{
+    ?x a schema:Reviewer; :hasName "Socaci Cristian"
+}

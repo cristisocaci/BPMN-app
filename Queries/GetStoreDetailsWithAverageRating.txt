@@ -1,0 +1,16 @@
+BASE <http://buchmann.ro#>
+PREFIX schema: <http://schema.org#>
+PREFIX : <http://buchmann.ro#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX reviewer: <http://buchmann.ro#/reviewer/>
+PREFIX review: <http://buchmann.ro#/review/>
+PREFIX store: <http://buchmann.ro#/store/>
+
+select ?id ?name ?address (xsd:float(sum(?rating))/xsd:float(count(?rating)) as ?averageRating) where { 
+    ?id a schema:Store; 
+       :hasName ?name;
+       :hasAddress ?address;
+       :hasReview ?review.
+    ?review :hasDescription ?description;
+			:hasRating ?rating.
+} group by ?id ?name ?address

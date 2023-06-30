@@ -34,7 +34,7 @@ function App() {
               cursor: "pointer",
             }}
           >
-            Stores {store ? " - " + store.address : ""}
+            McDonald's Stores {store ? " - " + store.address : ""}
           </Typography>
         </Toolbar>
       </AppBar>

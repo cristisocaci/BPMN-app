@@ -1,0 +1,9 @@
+BASE <http://buchmann.ro#>
+PREFIX schema: <http://schema.org#>
+PREFIX : <http://buchmann.ro#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX reviewer: <http://buchmann.ro#/reviewer/>
+PREFIX review: <http://buchmann.ro#/review/>
+PREFIX store: <http://buchmann.ro#/store/>
+
+select (count(?x) as ?count) where {?x a schema:Review.}
