@@ -41,7 +41,7 @@ SELECT ?id ?date ?description ?rating ?reviewerName where {
 }
   `,
 
-  getReviewsForStoreFilterMine: (storeId) => `
+  getReviewsForStoreFilterMine: (storeId, name) => `
 ${commonHeaders}
 
 SELECT ?id ?date ?description ?rating ?reviewerName where {
@@ -52,7 +52,7 @@ SELECT ?id ?date ?description ?rating ?reviewerName where {
        	:hasRating ?rating;
        	:writtenBy ?user_id.
     ?user_id :hasName ?reviewerName.
-    FILTER NOT EXISTS {?user_id :hasName "Socaci Cristian"}.
+    FILTER NOT EXISTS {?user_id :hasName "${name}"}.
     FILTER(?store_id = <${storeId}>).
 }
   `,
@@ -76,7 +76,7 @@ insert{
     <${review.storeId}> :hasReview <http://buchmann.ro#/review/${review.id}>.
 }
 where{
-    ?x a schema:Reviewer; :hasName "Socaci Cristian"
+    ?x a schema:Reviewer; :hasName "${review.reviewerName}"
 }
   `,
 };

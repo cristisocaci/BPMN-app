@@ -16,5 +16,5 @@ insert{
     <${review.storeId}> :hasReview <http://buchmann.ro#/review/${review.id}>.
 }
 where{
-    ?x a schema:Reviewer; :hasName "Socaci Cristian"
+    ?x a schema:Reviewer; :hasName "${name}"
 }

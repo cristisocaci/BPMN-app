@@ -41,6 +41,7 @@ function AddReview({ store, navigateToLanding }) {
       description,
       rating,
       storeId: store.id,
+      reviewerName: "Socaci Cristian",
     };
 
     setDisabled(true);

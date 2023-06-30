@@ -101,7 +101,11 @@ function Reviews({ store }) {
         <Button
           variant="outlined"
           sx={{ padding: 0 }}
-          onClick={() => getReviews(queries.getReviewsForStoreFilterMine)}
+          onClick={() =>
+            getReviews((storeId) =>
+              queries.getReviewsForStoreFilterMine(storeId, "Socaci Cristian")
+            )
+          }
         >
           Exclude my reviews
         </Button>

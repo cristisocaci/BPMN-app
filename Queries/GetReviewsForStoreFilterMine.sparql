@@ -14,6 +14,6 @@ SELECT ?id ?date ?description ?rating ?reviewerName where {
        	:hasRating ?rating;
        	:writtenBy ?user_id.
     ?user_id :hasName ?reviewerName.
-    FILTER NOT EXISTS {?user_id :hasName "Socaci Cristian"}.
+    FILTER NOT EXISTS {?user_id :hasName "${name}"}.
     FILTER(?store_id = <${storeId}>).
 }
